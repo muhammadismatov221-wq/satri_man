@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Бозорча — Хӯроки тоза дар назди дар</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="cript.css">
+</head>
+<body>
+
+<header>
+  <div class="headbar wrap">
+    <div class="brand">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+        <rect width="34" height="34" rx="9" fill="#5B8C3E"/>
+        <path d="M8 15L10 24H24L26 15" stroke="#FAF6EC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M7 15H27L24.5 10H9.5L7 15Z" stroke="#FAF6EC" stroke-width="2" stroke-linejoin="round"/>
+      </svg>
+      <div><span class="display" style="color:var(--plum)">Бозорча</span><small>хӯроки тоза</small></div>
+    </div>
+    <nav class="cats" id="catNav"></nav>
+    <button class="cart-btn" id="openCart">
+      🧺 Сабад <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">Расонидан ҳамон рӯз</div>
+      <h1>Хӯроки <em>тоза</em><br>рост аз бозор то дари шумо</h1>
+      <p class="lede">Сабзавот, мева, нон ва маҳсулоти шир аз деҳқонони маҳаллӣ — интихоб кунед, ба сабад илова кунед, фармоиш диҳед.</p>
+      <div class="hero-cta">
+        <button class="btn-primary" onclick="document.getElementById('shop').scrollIntoView()">Хариди маҳсулот</button>
+        <button class="btn-ghost" onclick="document.getElementById('adminPanel').scrollIntoView()">Маҳсулот илова кунед</button>
+      </div>
+      <div class="stat-strip">
+        <div><b id="statCount">0</b><span>намуди маҳсулот</span></div>
+        <div><b>2 соат</b><span>расонидани миёна</span></div>
+        <div><b>100%</b><span>тозагии кафолатнок</span></div>
+      </div>
+    </div>
+    <div class="crate">
+      <div class="stamp">100%<br>ТОЗА</div>
+      <div class="crate-emoji">🧺</div>
+    </div>
+  </div>
+</section>
+
+<main class="wrap" id="shop">
+  <div class="section-head">
+    <div>
+      <h2>Маҳсулоти имрӯза</h2>
+      <p>Ҳар рӯз нав — интихоб кунед ва ба сабад илова намоед.</p>
+    </div>
+  </div>
+
+  <div class="filter-row" id="filterRow"></div>
+
+  <div class="grid" id="productGrid"></div>
+</main>
+
+<section class="wrap">
+  <div class="admin" id="adminPanel">
+    <h2>Маҳсулоти нав илова кунед</h2>
+    <p class="lede">Ҳамчун фурӯшанда шумо метавонед маҳсулоти худро дар ин ҷо ба фурӯшгоҳ илова кунед. Маълумот дар ҳамин сессия нигоҳ дошта мешавад.</p>
+    <div class="admin-grid">
+      <div class="field">
+        <label for="pName">Номи маҳсулот</label>
+        <input id="pName" type="text" placeholder="Мас. Себи сурх">
+      </div>
+      <div class="field">
+        <label for="pPrice">Нарх (сомонӣ)</label>
+        <input id="pPrice" type="number" min="0" step="0.5" placeholder="Мас. 12">
+      </div>
+      <div class="field">
+        <label for="pCat">Категория</label>
+        <select id="pCat"></select>
+      </div>
+      <div class="field">
+        <label for="pEmoji">Аломат / эможи</label>
+        <input id="pEmoji" type="text" maxlength="4" placeholder="Мас. 🍎">
+      </div>
+      <div class="field">
+        <label for="pImg">Суроғаи расм (ихтиёрӣ)</label>
+        <input id="pImg" type="text" placeholder="https://...">
+      </div>
+    </div>
+    <div class="admin-submit">
+      <button class="btn-saffron" id="addProductBtn">+ Илова кардан ба фурӯшгоҳ</button>
+      <span class="admin-note" id="adminMsg">Ҳама майдонҳоро пур кунед.</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Бозорча — фурӯшгоҳи интернетии хӯрокворӣ. Сохта шуд бо HTML, CSS ва JavaScript.
+</footer>
+
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-head">
+    <h3>Сабади шумо</h3>
+    <button class="close-btn" id="closeCart">×</button>
+  </div>
+  <div class="drawer-body" id="cartBody"></div>
+  <div class="drawer-foot">
+    <div class="total-row"><span>Ҷамъ:</span><b id="cartTotal" class="mono">0 сомонӣ</b></div>
+    <button class="checkout-btn" id="checkoutBtn">Фармоиш додан</button>
+  </div>
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script src="index.js"></script>
+
+</body>
+</html>
